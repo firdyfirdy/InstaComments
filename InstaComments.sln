@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaComments", "InstaComments\InstaComments.csproj", "{72A7EEF3-9F4A-49E9-A422-9E44A067B98E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72A7EEF3-9F4A-49E9-A422-9E44A067B98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A7EEF3-9F4A-49E9-A422-9E44A067B98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A7EEF3-9F4A-49E9-A422-9E44A067B98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A7EEF3-9F4A-49E9-A422-9E44A067B98E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D80B6CE-AD85-4A56-B8EC-AF29BD709058}
+	EndGlobalSection
+EndGlobal
