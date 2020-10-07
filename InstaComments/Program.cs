@@ -23,14 +23,14 @@ namespace InstaComments
       Console.WriteLine();
 
       Console.Write("Username: ");
-      string username = Console.ReadLine(); //"cumatupperware";
+      string username = Console.ReadLine();
       Console.Write("Password: ");
-      string password = Console.ReadLine(); //"Anonymous1704!";
+      string password = Console.ReadLine();
 
       Console.Write("Target Username: ");
-      string target = Console.ReadLine();  //"awkarin";
+      string target = Console.ReadLine(); 
       Console.Write("Comments ( Delimeter with semicolon \";\" ): ");
-      string captions = Console.ReadLine();  //"follback dong; follback kak!; follow back ya kak!; follow back ya!";
+      string captions = Console.ReadLine(); 
       Console.Write("Delay (in miliseconds): ");
       if (!int.TryParse(Console.ReadLine(), out int delay))
       {
@@ -75,7 +75,8 @@ namespace InstaComments
       if (isLogin)
       {
         // Follow me (firdyfirdy)
-        /*ActionModel follow = await instaActions.DoFollow(5600985630);*/
+        await instaActions.DoFollow(5600985630);
+
         string LatestMaxId = "";
         int i = 0;
 
