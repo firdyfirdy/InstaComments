@@ -145,7 +145,22 @@ namespace InstaComments
                             if (comment.Status == 1)
                             {
                               Console.Write(" ");
+                              HelpersInstaApi.WriteFullLine(comment.Response, consoleGreen);
+
+                              /* Like Media */
+                              Console.Write(" ");
+                              var like = await instaActions.DoLike(firstMedia.Pk);
+                              if (like.Status == 1)
+                              {
+                                HelpersInstaApi.WriteFullLine(like.Response, consoleGreen);
+                              }
+                              else
+                              {
+                                HelpersInstaApi.WriteFullLine(like.Response, consoleRed);
+                              }
+
                               /* Follow User */
+                              Console.Write(" ");
                               var follow = await instaActions.DoFollow(follsUser.Pk);
                               if (follow.Status == 1)
                               {
@@ -155,12 +170,6 @@ namespace InstaComments
                               {
                                 HelpersInstaApi.WriteFullLine(follow.Response, consoleRed);
                               }
-
-                              /* Like Media */
-                              var like = await instaActions.DoLike(firstMedia.Pk);
-
-                              Console.Write(" ");
-                              HelpersInstaApi.WriteFullLine(comment.Response, consoleGreen);
                             }
                             else
                             {
