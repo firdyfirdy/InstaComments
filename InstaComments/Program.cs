@@ -110,11 +110,11 @@ namespace InstaComments
                     /* if they follow us */
                     if (getFriendshipStatus.Value.Following)
                     {
-                      HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName} | Skipped, Already Follow You.", consoleRed);
+                      HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName} | Skipped, You Already Follow.", consoleRed);
                     }
                     else if (getFriendshipStatus.Value.FollowedBy)
                     {
-                      HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName} | Skipped, You Already Follow.", consoleRed);
+                      HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName} | Skipped, Already Follow You.", consoleRed);
                     }
                     else
                     {
@@ -132,8 +132,6 @@ namespace InstaComments
                           /* If media comment is not disabled */
                           if (!firstMedia.IsCommentsDisabled)
                           {
-                            /* Like Media */
-                            var like = await instaActions.DoLike(firstMedia.Pk);
 
                             /* Get random comments text */
                             string[] captionSplit = captions.Split(';');
@@ -142,12 +140,33 @@ namespace InstaComments
 
                             /* Comment media*/
                             var comment = await instaActions.DoComment(firstMedia, resultCaptions);
-                            HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName}");
-                            Console.Write(" ");
+                            HelpersInstaApi.WriteFullLine($"[{i}] Username: {follsUser.UserName}", consoleGreen);
+                            
                             if (comment.Status == 1)
+                            {
+                              Console.Write(" ");
+                              /* Follow User */
+                              var follow = await instaActions.DoFollow(follsUser.Pk);
+                              if (follow.Status == 1)
+                              {
+                                HelpersInstaApi.WriteFullLine(follow.Response, consoleGreen);
+                              }
+                              else
+                              {
+                                HelpersInstaApi.WriteFullLine(follow.Response, consoleRed);
+                              }
+
+                              /* Like Media */
+                              var like = await instaActions.DoLike(firstMedia.Pk);
+
+                              Console.Write(" ");
                               HelpersInstaApi.WriteFullLine(comment.Response, consoleGreen);
-                            if (comment.Status == 0)
+                            }
+                            else
+                            {
+                              Console.Write(" ");
                               HelpersInstaApi.WriteFullLine(comment.Response, consoleRed);
+                            }
 
                             HelpersInstaApi.WriteFullLine($" [+] Sleep for {delay} ms");
                             await Task.Delay(delay);
